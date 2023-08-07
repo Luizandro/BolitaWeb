@@ -66,7 +66,7 @@
                 <h2 style="text-align: center;">Sucursales La Bolita</h2>
                 <div class="row">
                     <div class="col-12">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3818.356019455189!2d-99.91574849999999!3d16.8582741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85caf7f7ac9580cb%3A0x9cb431b5057f64ef!2sCHEDRAUI%20PIE%20DE%20LA%20CUESTA!5e0!3m2!1ses-419!2smx!4v1691093991413!5m2!1ses-419!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe id="mapaIframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3818.356019455189!2d-99.91574849999999!3d16.8582741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85caf7f7ac9580cb%3A0x9cb431b5057f64ef!2sCHEDRAUI%20PIE%20DE%20LA%20CUESTA!5e0!3m2!1ses-419!2smx!4v1691093991413!5m2!1ses-419!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                     <div class="col-6">
                         <div class="input-group mb-3">
@@ -132,22 +132,25 @@
                 nombre:   "Oficina Ecatepec I Soriana Centro",
                 estado:   "Estado de México",
                 municipio:"Ecatepec",
+                direccion:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3851.4139612973427!2d-92.4627905!3d15.1355939!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8592075fd3599c75%3A0x15e3a2c14871c855!2sIturbide%2040%2C%20San%20Jos%C3%A9%2C%2030640%20Huixtla%2C%20Chis.!5e0!3m2!1ses-419!2smx!4v1691173264627!5m2!1ses-419!2smx",
             },
             {
                 nombre:   "Oficina Ecatepec II Soriana Aragon",
                 estado:   "Estado de México",
                 municipio:"Ecatepec",
+                direccion:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3851.4139612973427!2d-92.4627905!3d15.1355939!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8592075fd3599c75%3A0x15e3a2c14871c855!2sIturbide%2040%2C%20San%20Jos%C3%A9%2C%2030640%20Huixtla%2C%20Chis.!5e0!3m2!1ses-419!2smx!4v1691173264627!5m2!1ses-419!2smx",
             },
+            
         ];
 
         function updateOficinas(){
             var selectedEstado    = $("#estado").val();
             var selectedMunicipio = $("#municipio").val();
-            
+
             var filteredOficinas = offices.filter(
                 (office) =>
                             office.estado == selectedEstado && office.municipio == selectedMunicipio
-             );
+            );
             $("#oficinas").empty();
             filteredOficinas.forEach(function (office){
                 $("#oficinas").append(`
@@ -159,12 +162,12 @@
                                     <p class="card-text">${office.estado}</p>
                                     <div class="text-center d-flex align-items-center">
                                         <img width="30" height="30" src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/60/external-open-ecommerce-vitaliy-gorbachev-lineal-color-vitaly-gorbachev.png" alt="external-open-ecommerce-vitaliy-gorbachev-lineal-color-vitaly-gorbachev"/>
-                                        <p class="card-text ml-1"><small class="text-muted">9:00am  9:00pm</small></p>
+                                        <p class="card-text ml-1"><small class="text-muted">9:00am - 9:00pm</small></p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-4 d-flex justify-content-center align-items-center bg-image">
-                                <button type="button" class="btn btn-success btn-lg">Ubicación</button>
+                                <button class="actualizarMapa btn btn-success btn-lg" data-src="${office.direccion}">Ubicación</button>
                             </div>
                         </div>
                     </div>
@@ -201,6 +204,12 @@
             //Agrega eventos para actualizar las oficinas cuando se seleccione un estado o municipio
             $("#estado").change(updateMunicipios);
             $("#municipio").change(updateOficinas);
+
+            $(document).on("click", ".actualizarMapa", function(){
+                var nuevaUbicacion = $(this).data("src");
+                $("#mapaIframe").attr("src", nuevaUbicacion);
+                console.log('Botón de ubicación clickeado');
+            });
         });
     </script>
 </body>
