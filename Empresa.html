@@ -223,15 +223,22 @@
 
         function updateMunicipios(){
         var selectedEstado = $("#estado").val();
-        var municipios = offices
-        .filter((office) => office.estado === selectedEstado)
-        .map((office) => office.municipio);
+        var uniqueMunicipios = new Set();
+
+        offices
+            .filter((office) => office.estado == selectedEstado)
+            .forEach((office)=> {
+                uniqueMunicipios.add(office.municipio);
+            });
+
+            var municipiosArray = Array.from(uniqueMunicipios);
+
 
         // Limpia el dropdown de municipios
         $("#municipio").empty();
 
         // Agrega los municipios correspondientes al dropdown
-        municipios.forEach(function (municipio) {
+        municipiosArray.forEach(function (municipio) {
             $("#municipio").append(
                 $("<option>", {
                 value: municipio,
