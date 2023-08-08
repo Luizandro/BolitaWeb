@@ -24,11 +24,11 @@
 
     }
     .bg-image{
-        background-image: url('https://juegalabolita.com/LoteriaMexicanaWeb/Content/img/loteria/consulta_bolita_fondo.png');
+        /* background-image: url('https://juegalabolita.com/LoteriaMexicanaWeb/Content/img/loteria/consulta_carton_mexico.png');
         background-size: cover;
         background-position-x: right;
         background-repeat: no-repeat;
-        background-origin: content-box;
+        background-origin: content-box; */
     }
 </style>
 
@@ -95,7 +95,6 @@
                     </div>
                 </div>
                 <div id="oficinas">
-
                 </div>
             </div>
         </div>
@@ -193,22 +192,26 @@
             $("#oficinas").empty();
             filteredOficinas.forEach(function (office){
                 $("#oficinas").append(`
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card mb-3">
-                                <div class="row g-0">
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <h5 class="card-title">${office.nombre}</h5>
-                                            <p class="card-text">${office.estado}</p>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card mb-3">
+                                    <div class="row g-0">
+                                        <div class="col-md-6">
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title">${office.nombre}</h5>
+                                                <p class="card-text">${office.estado}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 d-flex justify-content-center align-items-center pt-3 pb-3">
                                             <div class="text-center d-flex align-items-center">
-                                                <img width="30" height="30" src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/60/external-open-ecommerce-vitaliy-gorbachev-lineal-color-vitaly-gorbachev.png" alt="external-open-ecommerce-vitaliy-gorbachev-lineal-color-vitaly-gorbachev"/>
+                                                <img class="img-fluid" src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/60/external-open-ecommerce-vitaliy-gorbachev-lineal-color-vitaly-gorbachev.png" alt="external-open-ecommerce-vitaliy-gorbachev-lineal-color-vitaly-gorbachev"/>
                                                 <p class="card-text ml-1"><small class="text-muted">9:00am - 9:00pm</small></p>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4 d-flex justify-content-center align-items-center bg-image">
-                                        <button class="actualizarMapa btn btn-success btn-lg" data-src="${office.direccion}">Ubicación</button>
+                                        <div class="col-md-3 d-flex justify-content-center align-items-center bg-image pt-3 pb-3">
+                                            <button class="actualizarMapa btn btn-success btn-lg" data-src="${office.direccion}">Ubicación</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
