@@ -80,6 +80,16 @@
                               <option value="Puebla">Puebla</option>
                               <option value="CDMX">CDMX</option>
                               <option value="Quintana Roo">Quintana Roo</option>
+                              <option value="Guanajuato">Guanajuato</option>
+                              <option value="San Luis Potosi">San Luis Potosi</option>
+                              <option value="Durango">Durango</option>
+                              <option value="Coahuila">Coahuila</option>
+                              <option value="Campeche">Campeche</option>
+                              <option value="Tabasco">Tabasco</option>
+                              <option value="Veracruz">Veracruz</option>
+                              <option value="Jalisco">Jalisco</option>
+                              <option value="Chiapas">Chiapas</option>
+                              <option value="Guerrero">Guerrero</option>
                             </select>
                         </div>    
                     </div>
@@ -117,68 +127,1396 @@
     <script>
 
         var offices = [
-            {
-                nombre:   "Oficina Ecatepec I Soriana Centro",
-                estado:   "Estado de México",
-                municipio:"Ecatepec",
-                direccion:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3758.4990055889466!2d-99.0518134!3d19.605953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f19e984d8f1d%3A0x997a4d29ebd2993b!2sMEGA%20Soriana%20-%20Ecatepec%20Centro!5e0!3m2!1ses-419!2smx!4v1691450417525!5m2!1ses-419!2smx",
+            /* {
+            //     nombre:   "Oficina Ecatepec I Soriana Centro",
+            //     estado:   "Estado de México",
+            //     municipio:"Ecatepec",
+            //     direccion:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3758.4990055889466!2d-99.0518134!3d19.605953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f19e984d8f1d%3A0x997a4d29ebd2993b!2sMEGA%20Soriana%20-%20Ecatepec%20Centro!5e0!3m2!1ses-419!2smx!4v1691450417525!5m2!1ses-419!2smx",
                 
-            },
-            {
-                nombre:   "Oficina Ecatepec II Soriana Aragon",
-                estado:   "Estado de México",
-                municipio:"Ecatepec",
-                direccion:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3760.979794384534!2d-99.04473639999999!3d19.499505100000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ee0dd9f30a9f%3A0xceb7857a1b986e33!2sSoriana%20H%C3%ADper%20-%20Arag%C3%B3n!5e0!3m2!1ses-419!2smx!4v1691450556465!5m2!1ses-419!2smx",
-            },
-            {
-                nombre:   "Oficina Motul",
-                estado:   "Yucatán",
-                municipio:"Motul",
-                direccion:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3722.5148020315946!2d-89.29257941454702!3d21.092032535527327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f56827f7cdeca49%3A0x33f2b480345f2b7a!2sC.%2033%20301b%2C%20Centro%2C%2097430%20Motul%20de%20Carrillo%20Puerto%2C%20Yuc.!5e0!3m2!1ses-419!2smx!4v1691450642516!5m2!1ses-419!2smx",
+            // },
+            // {
+            //     nombre:   "Oficina Ecatepec II Soriana Aragon",
+            //     estado:   "Estado de México",
+            //     municipio:"Ecatepec",
+            //     direccion:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3760.979794384534!2d-99.04473639999999!3d19.499505100000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ee0dd9f30a9f%3A0xceb7857a1b986e33!2sSoriana%20H%C3%ADper%20-%20Arag%C3%B3n!5e0!3m2!1ses-419!2smx!4v1691450556465!5m2!1ses-419!2smx",
+            // },
+            // {
+            //     nombre:   "Oficina Motul",
+            //     estado:   "Yucatán",
+            //     municipio:"Motul",
+            //     direccion:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3722.5148020315946!2d-89.29257941454702!3d21.092032535527327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f56827f7cdeca49%3A0x33f2b480345f2b7a!2sC.%2033%20301b%2C%20Centro%2C%2097430%20Motul%20de%20Carrillo%20Puerto%2C%20Yuc.!5e0!3m2!1ses-419!2smx!4v1691450642516!5m2!1ses-419!2smx",
                 
-            },
-            {
-                nombre:   "Oficina Quiosco Cholul",
-                estado:   "Yucatán",
-                municipio:"Cholul",
-                direccion:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1107.0829429256814!2d-89.5587199792779!3d21.041954449101095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f567763714c4469%3A0x7477766714985e61!2sFarmacias%20YZA!5e0!3m2!1ses-419!2smx!4v1691450702051!5m2!1ses-419!2smx",
-            },
-            {
-                nombre:   "Oficina Puebla VI Soriana Atlixco",
-                estado:   "Puebla",
-                municipio:"Atlixco",
-                direccion:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3774.770515766652!2d-98.43413232414972!3d18.897259157558224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfb3865b6c18db%3A0x690fbc1f832e6eb8!2sBlvd.%2019%20Ote.%20O%20Blvd.%20Ni%C3%B1os%20H%C3%A9roes%20803%2C%20Revoluci%C3%B3n%2C%2074270%20Atlixco%2C%20Pue.!5e0!3m2!1ses-419!2smx!4v1691452045549!5m2!1ses-419!2smx",
-            },            
-            {
-                nombre:   "Oficina Puebla VII Aurrera Agricola Resurgimiento",
-                estado:   "Puebla",
-                municipio:"Puebla ",
-                direccion:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.457099398134!2d-98.16311491483208!3d19.04363010699017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfc0487c2e4fe7%3A0x5666cd8980883808!2sAv%2014%20Ote%20%26%20Calle%2052%20Nte.%2C%20Agr%C3%ADcola%20Resurgimiento%2C%2072320%20Puebla%2C%20Pue.!5e0!3m2!1ses-419!2smx!4v1691452114342!5m2!1ses-419!2smx" ,
-            },
-            {
-                nombre:   "Oficina CDMX Benito Juarez I Soriana Mixcoac",
-                estado:   "CDMX",
-                municipio:"Benito Juarez",
-                direccion:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3764.5131132130227!2d-99.1819789241422!3d19.34692274341014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fffac8adba1d%3A0x14140e2f23cddad9!2sAv.%20Miguel%20%C3%81ngel%20de%20Quevedo%20170%2C%20Santa%20Catarina%2C%20Coyoac%C3%A1n%2C%2003910%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1691452181304!5m2!1ses-419!2smx",
-            },
-            {
-                nombre:   "Oficina CDMX Iztapalapa I Soriana Reforma",
-                estado:   "CDMX",
-                municipio:"Iztapalapa",
-                direccion:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3764.630399056137!2d-99.0557819241423!3d19.341838043571993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce0281c13c2c9b%3A0x978b6dc0bdaa27a3!2sErmita%20Iztapalapa%203016%2C%20Reforma%20Pol%C3%ADtica%2C%20Iztapalapa%2C%2009730%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1691452299690!5m2!1ses-419!2smx",
-            },
-            {
-                nombre:   "Oficina Quiosco Playa del Carmen I",
-                estado:   "Quintana Roo",
-                municipio:"Solidaridad",
-                direccion:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.9505127866887!2d-87.08070931461384!3d20.630873852147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4e4324601178cb%3A0x6c20f4cfa3fedb50!2sC.12%20Nte%20Bis%2C%20Centro%2C%2077710%20Playa%20del%20Carmen%2C%20Q.R.!5e0!3m2!1ses-419!2smx!4v1691452358137!5m2!1ses-419!2smx",
-            },
-            {
-                nombre:   "Oficina Tulum I",
-                estado:   "Quintana Roo",
-                municipio:"Tulum",
-                direccion:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.4601125215117!2d-87.06555321461093!3d20.650851751433365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4e5d2d706c233b%3A0x86ad67af7b0e2048!2s96%20Nte.%2027-MZ%2018%2C%20Luis%20Donaldo%20Colosio%2C%2077728%20Playa%20del%20Carmen%2C%20Q.R.!5e0!3m2!1ses-419!2smx!4v1691452412039!5m2!1ses-419!2smx",
-            },
+            // },
+            // {
+            //     nombre:   "Oficina Quiosco Cholul",
+            //     estado:   "Yucatán",
+            //     municipio:"Cholul",
+            //     direccion:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1107.0829429256814!2d-89.5587199792779!3d21.041954449101095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f567763714c4469%3A0x7477766714985e61!2sFarmacias%20YZA!5e0!3m2!1ses-419!2smx!4v1691450702051!5m2!1ses-419!2smx",
+            // },
+            // {
+            //     nombre:   "Oficina Puebla VI Soriana Atlixco",
+            //     estado:   "Puebla",
+            //     municipio:"Atlixco",
+            //     direccion:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3774.770515766652!2d-98.43413232414972!3d18.897259157558224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfb3865b6c18db%3A0x690fbc1f832e6eb8!2sBlvd.%2019%20Ote.%20O%20Blvd.%20Ni%C3%B1os%20H%C3%A9roes%20803%2C%20Revoluci%C3%B3n%2C%2074270%20Atlixco%2C%20Pue.!5e0!3m2!1ses-419!2smx!4v1691452045549!5m2!1ses-419!2smx",
+            // },            
+            // {
+            //     nombre:   "Oficina Puebla VII Aurrera Agricola Resurgimiento",
+            //     estado:   "Puebla",
+            //     municipio:"Puebla ",
+            //     direccion:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.457099398134!2d-98.16311491483208!3d19.04363010699017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfc0487c2e4fe7%3A0x5666cd8980883808!2sAv%2014%20Ote%20%26%20Calle%2052%20Nte.%2C%20Agr%C3%ADcola%20Resurgimiento%2C%2072320%20Puebla%2C%20Pue.!5e0!3m2!1ses-419!2smx!4v1691452114342!5m2!1ses-419!2smx" ,
+            // },
+            // {
+            //     nombre:   "Oficina CDMX Benito Juarez I Soriana Mixcoac",
+            //     estado:   "CDMX",
+            //     municipio:"Benito Juarez",
+            //     direccion:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3764.5131132130227!2d-99.1819789241422!3d19.34692274341014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fffac8adba1d%3A0x14140e2f23cddad9!2sAv.%20Miguel%20%C3%81ngel%20de%20Quevedo%20170%2C%20Santa%20Catarina%2C%20Coyoac%C3%A1n%2C%2003910%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1691452181304!5m2!1ses-419!2smx",
+            // },
+            // {
+            //     nombre:   "Oficina CDMX Iztapalapa I Soriana Reforma",
+            //     estado:   "CDMX",
+            //     municipio:"Iztapalapa",
+            //     direccion:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3764.630399056137!2d-99.0557819241423!3d19.341838043571993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce0281c13c2c9b%3A0x978b6dc0bdaa27a3!2sErmita%20Iztapalapa%203016%2C%20Reforma%20Pol%C3%ADtica%2C%20Iztapalapa%2C%2009730%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1691452299690!5m2!1ses-419!2smx",
+            // },
+            // {
+            //     nombre:   "Oficina Quiosco Playa del Carmen I",
+            //     estado:   "Quintana Roo",
+            //     municipio:"Solidaridad",
+            //     direccion:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.9505127866887!2d-87.08070931461384!3d20.630873852147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4e4324601178cb%3A0x6c20f4cfa3fedb50!2sC.12%20Nte%20Bis%2C%20Centro%2C%2077710%20Playa%20del%20Carmen%2C%20Q.R.!5e0!3m2!1ses-419!2smx!4v1691452358137!5m2!1ses-419!2smx",
+            // },
+            // {
+            //     nombre:   "Oficina Tulum I",
+            //     estado:   "Quintana Roo",
+            //     municipio:"Tulum",
+            //     direccion:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.4601125215117!2d-87.06555321461093!3d20.650851751433365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4e5d2d706c233b%3A0x86ad67af7b0e2048!2s96%20Nte.%2027-MZ%2018%2C%20Luis%20Donaldo%20Colosio%2C%2077728%20Playa%20del%20Carmen%2C%20Q.R.!5e0!3m2!1ses-419!2smx!4v1691452412039!5m2!1ses-419!2smx",
+            //},*/
+    {
+        "nombre": "Oficina Ecatepec I Soriana Centro",
+        "estado": "Estado de México",
+        "municipio": "Ecatepec", 
+        "direccion": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3758.4990055889466!2d-99.0518134!3d19.605953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f19e984d8f1d%3A0x997a4d29ebd2993b!2sMEGA%20Soriana%20-%20Ecatepec%20Centro!5e0!3m2!1ses-419!2smx!4v1691771337462!5m2!1ses-419!2smx",
+    },
+    {
+        "nombre": "Oficina Ecatepec II Soriana Aragon",
+        "estado": "Estado de México",
+        "municipio": "Ecatepec"
+    },
+    {
+        "nombre": "Oficina Ecatepec III Soriana Via Morelos",
+        "estado": "Estado de México",
+        "municipio": "Ecatepec"
+    },
+    {
+        "nombre": "Oficina Nezahualcoyotl I Aurrera Aragon",
+        "estado": "Estado de México",
+        "municipio": "Nezahualcoyotl"
+    },
+    {
+        "nombre": "Oficina Texcoco I Soriana Centro",
+        "estado": "Estado de México",
+        "municipio": "Texcoco"
+    },
+    {
+        "nombre": "Oficina Tecamac I Walmart San Jose",
+        "estado": "Estado de México",
+        "municipio": "Huayotenco"
+    },
+    {
+        "nombre": "Oficina Ecatepec IV Aurrera Palomas",
+        "estado": "Estado de México",
+        "municipio": "Ecatepec"
+    },
+    {
+        "nombre": "Oficina Motul",
+        "estado": "Yucatán",
+        "municipio": "Motul"
+    },
+    {
+        "nombre": "Oficina Quiosco Cholul",
+        "estado": "Yucatán",
+        "municipio": "Cholul"
+    },
+    {
+        "nombre": "Oficina Conkal XXXX",
+        "estado": "Yucatán",
+        "municipio": "Conkal"
+    },
+    {
+        "nombre": "Oficina Puebla VI Soriana Atlixco",
+        "estado": "Puebla",
+        "municipio": "Atlixco"
+    },
+    {
+        "nombre": "Oficina Puebla VII Aurrera Agricola Resurgimiento",
+        "estado": "Puebla",
+        "municipio": "Puebla"
+    },
+    {
+        "nombre": "Oficina Puebla VIII Aurrera Mayorazgo",
+        "estado": "Puebla",
+        "municipio": "Puebla"
+    },
+    {
+        "nombre": "Oficina Puebla IX Aurrera Amalucan",
+        "estado": "Puebla",
+        "municipio": "Amalucan"
+    },
+    {
+        "nombre": "Oficina Puebla X Aurrera La Arcadia",
+        "estado": "Puebla",
+        "municipio": "Puebla"
+    },
+    {
+        "nombre": "Oficina Puebla I San Felipe",
+        "estado": "Puebla",
+        "municipio": "Puebla"
+    },
+    {
+        "nombre": "Oficina Puebla II Cleotilde Torres",
+        "estado": "Puebla",
+        "municipio": "Puebla"
+    },
+    {
+        "nombre": "Oficina Puebla III Soriana Capu",
+        "estado": "Puebla",
+        "municipio": "Puebla"
+    },
+    {
+        "nombre": "Oficina Puebla V Soriana Hermanos Serdan",
+        "estado": "Puebla",
+        "municipio": "Puebla"
+    },
+    {
+        "nombre": "Oficina CDMX Benito Juarez I Soriana Mixcoac",
+        "estado": "Ciudad de México",
+        "municipio": "Benito Juarez"
+    },
+    {
+        "nombre": "Oficina CDMX Iztapalapa I Soriana Reforma",
+        "estado": "CDMX",
+        "municipio": "Iztapalapa"
+    },
+    {
+        "nombre": "Oficina CDMX Iztapalapa II Soriana San Lorenzo",
+        "estado": "CDMX",
+        "municipio": "Iztapalapa"
+    },
+    {
+        "nombre": "Oficina CDMX Iztapalapa III Soriana Tulyehualco",
+        "estado": "CDMX",
+        "municipio": "Iztapalapa"
+    },
+    {
+        "nombre": "Oficina CDMX Iztapalapa IV Soriana La Viga",
+        "estado": "CDMX",
+        "municipio": "Iztapalapa"
+    },
+    {
+        "nombre": "Oficina CDMX Coyoacan I Soriana Miramontes",
+        "estado": "CDMX",
+        "municipio": "Coyoacan"
+    },
+    {
+        "nombre": "Oficina CDMX Iztapalapa V Soriana El Salado",
+        "estado": "CDMX",
+        "municipio": "Iztapalapa"
+    },
+    {
+        "nombre": "Oficina CDMX Benito Juarez II Soriana Eugenia",
+        "estado": "CDMX",
+        "municipio": "Benito Juarez"
+    },
+    {
+        "nombre": "Oficina CDMX Benito Juarez III Soriana Division del Norte",
+        "estado": "CDMX",
+        "municipio": "Benito Juarez"
+    },
+    {
+        "nombre": "Oficina CDMX Coyoacan II Aurrera la Virgen",
+        "estado": "CDMX",
+        "municipio": "Coyoacan"
+    },
+    {
+        "nombre": "Oficina CDMX Iztapalapa V Aurrera los Angeles",
+        "estado": "CDMX",
+        "municipio": "Iztapalapa"
+    },
+    {
+        "nombre": "Oficina Felipe Carrillo",
+        "estado": "Quintana Roo",
+        "municipio": "Felipe Carrillo Puerto"
+    },
+    {
+        "nombre": "Oficina Quiosco Playa del Carmen I",
+        "estado": "Quintana Roo",
+        "municipio": "Solidaridad"
+    },
+    {
+        "nombre": "Oficina Quiosco Playa del Carmen III",
+        "estado": "Quintana Roo",
+        "municipio": "Solidaridad"
+    },
+    {
+        "nombre": "Oficina Playa del carmen Juarez",
+        "estado": "Quintana Roo",
+        "municipio": "Solidaridad"
+    },
+    {
+        "nombre": "Oficina Playa del Carmen Colosio",
+        "estado": "Quintana Roo",
+        "municipio": "Solidaridad"
+    },
+    {
+        "nombre": "Oficina Playa del Carmen Colosio 64",
+        "estado": "Quintana Roo",
+        "municipio": "Solidaridad"
+    },
+    {
+        "nombre": "Oficina Playa del Carmen Juarez Ejidal",
+        "estado": "Quintana Roo",
+        "municipio": "Solidaridad"
+    },
+    {
+        "nombre": "Oficina Playa del Carmen CTM",
+        "estado": "Quintana Roo",
+        "municipio": "Solidaridad"
+    },
+    {
+        "nombre": "Oficina Tulum I",
+        "estado": "Quintana Roo",
+        "municipio": "Tulum"
+    },
+    {
+        "nombre": "Oficina Guanajuato Celaya",
+        "estado": "Guanajuato",
+        "municipio": "Celaya"
+    },
+    {
+        "nombre": "Oficina Guanajuato Celaya II Constituyentes",
+        "estado": "Guanajuato",
+        "municipio": "Celaya"
+    },
+    {
+        "nombre": "Oficina Irapuato I Central de Autobuses",
+        "estado": "Guanajuato",
+        "municipio": "Irapuato"
+    },
+    {
+        "nombre": "Oficina Leon",
+        "estado": "Guanajuato",
+        "municipio": "León"
+    },
+    {
+        "nombre": "Oficina Antonio Madrazo",
+        "estado": "Guanajuato",
+        "municipio": "León"
+    },
+    {
+        "nombre": "Oficina Leon III Vicente Valtierra",
+        "estado": "Guanajuato",
+        "municipio": "León"
+    },
+    {
+        "nombre": "Oficina Leon IV San Juan Bosco",
+        "estado": "Guanajuato",
+        "municipio": "León"
+    },
+    {
+        "nombre": "Oficina Silao",
+        "estado": "Guanajuato",
+        "municipio": "Silao"
+    },
+    {
+        "nombre": "Oficina San Luis Potosi",
+        "estado": "San Luis Potosi",
+        "municipio": "San Luis Potosi"
+    },
+    {
+        "nombre": "Oficina Gomez Palacio",
+        "estado": "Durango",
+        "municipio": "Gomez Palacio"
+    },
+    {
+        "nombre": "Oficina Matamoros Av Cuauhtemoc",
+        "estado": "Coahuila",
+        "municipio": "Matamoros"
+    },
+    {
+        "nombre": "Oficina Durango Nazareno",
+        "estado": "Durango",
+        "municipio": "Nazareno"
+    },
+    {
+        "nombre": "Oficina Torreon Matriz",
+        "estado": "Coahuila",
+        "municipio": "Torreon"
+    },
+    {
+        "nombre": "Oficina Torreon Juarez y Falcon",
+        "estado": "Coahuila",
+        "municipio": "Torreon"
+    },
+    {
+        "nombre": "Oficina Torreon Quiosco Dalia",
+        "estado": "Coahuila",
+        "municipio": "Torreon"
+    },
+    {
+        "nombre": "Oficina Torreon la Alianza",
+        "estado": "Coahuila",
+        "municipio": "Torreon"
+    },
+    {
+        "nombre": "Oficina Torreon Linea Verde",
+        "estado": "Coahuila",
+        "municipio": "Torreon"
+    },
+    {
+        "nombre": "Oficina Torreon Universidad",
+        "estado": "Coahuila",
+        "municipio": "Torreon"
+    },
+    {
+        "nombre": "Oficina Candelaria I",
+        "estado": "Campeche",
+        "municipio": "Candelaria"
+    },
+    {
+        "nombre": "Oficina Escarcega",
+        "estado": "Campeche",
+        "municipio": "Escarcega"
+    },
+    {
+        "nombre": "Oficina Escarcega II",
+        "estado": "Campeche",
+        "municipio": "Escarcega"
+    },
+    {
+        "nombre": "Oficina Isla Aguada I",
+        "estado": "Campeche",
+        "municipio": "Isla Aguada"
+    },
+    {
+        "nombre": "Oficina Cd del Carmen",
+        "estado": "Campeche",
+        "municipio": "Cd. del Carmen"
+    },
+    {
+        "nombre": "Oficina Cd del Carmen II Belisario Dom",
+        "estado": "Campeche",
+        "municipio": "Cd. del Carmen"
+    },
+    {
+        "nombre": "Oficina Cd del Carmen lll Madero",
+        "estado": "Campeche",
+        "municipio": "Cd. del Carmen"
+    },
+    {
+        "nombre": "Oficina Cd del Carmen lV Soriana Aviacion",
+        "estado": "Campeche",
+        "municipio": "Cd. del Carmen"
+    },
+    {
+        "nombre": "Oficina Frontera I",
+        "estado": "Tabasco",
+        "municipio": "Villahermosa"
+    },
+    {
+        "nombre": "Oficina Frontera II",
+        "estado": "Tabasco",
+        "municipio": "Villahermosa"
+    },
+    {
+        "nombre": "Oficina Tenosique I Centro",
+        "estado": "Tabasco",
+        "municipio": "Tenosique"
+    },
+    {
+        "nombre": "Oficina Veracruz I Tuero Molina",
+        "estado": "Veracuz",
+        "municipio": "Veracruz"
+    },
+    {
+        "nombre": "Oficina Veracruz II Los Pinos",
+        "estado": "Veracuz",
+        "municipio": "Veracruz"
+    },
+    {
+        "nombre": "Oficina Boca del Rio I Casas Tamsa",
+        "estado": "Veracuz",
+        "municipio": "Boca del Rio"
+    },
+    {
+        "nombre": "Oficina Veracruz III Rio Medio",
+        "estado": "Veracuz",
+        "municipio": "Veracruz"
+    },
+    {
+        "nombre": "Oficina Veracruz Alvarado I Centro",
+        "estado": "Veracuz",
+        "municipio": "Alvarado"
+    },
+    {
+        "nombre": "Oficina CDMX I Alvaro Obregon Walmart las Aguilas",
+        "estado": "Ciudad de México",
+        "municipio": "Alvaro Obregon"
+    },
+    //First generation
+    {
+        "nombre": "Oficina CDMX III Alvaro Obregon Soriana Santa Lucia",
+        "estado": "Ciudad de México",
+        "municipio": "Alvaro Obregon"
+    },
+    {
+        "nombre": "Oficina CDMX IV Alvaro Obregon Bodega Aurrera Santa Lucia",
+        "estado": "Ciudad de México",
+        "municipio": "Alvaro Obregon"
+    },
+    {
+        "nombre": "Oficina CDMX V Alvaro Obregon Bodega Aurrera Centenario",
+        "estado": "Ciudad de México",
+        "municipio": "Alvaro Obregon"
+    },
+    {
+        "nombre": "Oficina Progreso Super Aki",
+        "estado": "Yucatán",
+        "municipio": "Progreso"
+    },
+    {
+        "nombre": "Oficina Progreso Vicente Guerrero",
+        "estado": "Yucatán",
+        "municipio": "Progreso"
+    },
+    {
+        "nombre": "Oficina Progreso Mercado",
+        "estado": "Yucatán",
+        "municipio": "Progreso"
+    },
+    {
+        "nombre": "Oficina Progreso Nueva Yucalpeten",
+        "estado": "Yucatán",
+        "municipio": "Progreso"
+    },
+    {
+        "nombre": "Oficina Piste",
+        "estado": "Yucatán",
+        "municipio": "Piste"
+    },
+    {
+        "nombre": "Oficina Valladolid I",
+        "estado": "Yucatán",
+        "municipio": "Valladolid"
+    },
+    {
+        "nombre": "Oficina Kanasín Centro",
+        "estado": "Yucatán",
+        "municipio": "Kanasín"
+    },
+    {
+        "nombre": "Oficina Kanasin Santa Isabel",
+        "estado": "Yucatán",
+        "municipio": "Kanasín"
+    },
+    {
+        "nombre": "Oficina Valladolid II",
+        "estado": "Yucatán",
+        "municipio": "Valladolid"
+    },
+    {
+        "nombre": "Oficina Tixkokob",
+        "estado": "Yucatán",
+        "municipio": "Tixkokob"
+    },
+    {
+        "nombre": "Oficina Izamal",
+        "estado": "Yucatán",
+        "municipio": "Izamal"
+    },
+    {
+        "nombre": "Oficina Kanasin Crocc",
+        "estado": "Yucatán",
+        "municipio": "Kanasín"
+    },
+    {
+        "nombre": "Oficina Quiosco Acanceh",
+        "estado": "Yucatán",
+        "municipio": "Acanceh"
+    },
+    {
+        "nombre": "Oficina Huhi",
+        "estado": "Yucatán",
+        "municipio": "Huhi"
+    },
+    {
+        "nombre": "Oficina CDMX I Azcapotzalco el Rosario",
+        "estado": "Ciudad de México",
+        "municipio": "Azcapotzalco"
+    },
+    {
+        "nombre": "Oficina CDMX II Azcapotzalco Soriana Cuitlahuac",
+        "estado": "Ciudad de México",
+        "municipio": "Azcapotzalco"
+    },
+    {
+        "nombre": "Oficina CDMX III Azcapotzalco Walmart",
+        "estado": "Ciudad de México",
+        "municipio": "Azcapotzalco"
+    },
+    {
+        "nombre": "Oficina CDMX Cuauhtemoc I Soriana Asturias",
+        "estado": "Ciudad de México",
+        "municipio": "Cuauhtemoc"
+    },
+    {
+        "nombre": "Oficina CDMX Miguel Hidalgo I Soriana Tacuba",
+        "estado": "Ciudad de México",
+        "municipio": "Miguel Hidalgo"
+    },
+    {
+        "nombre": "Oficina CDMX II Alvaro Obregon Observatorio",
+        "estado": "Ciudad de México",
+        "municipio": "Alvaro Obregon"
+    },
+    {
+        "nombre": "Oficina CDMX Miguel Hidalgo II Soriana Tacubaya",
+        "estado": "Ciudad de México",
+        "municipio": "Miguel Hidalgo"
+    },
+    {
+        "nombre": "Oficina Naucalpan I Soriana Echegaray",
+        "estado": "Ciudad de México",
+        "municipio": "Naucalpan"
+    },
+    {
+        "nombre": "Oficina Tlanepantla I Walmart Toltecas",
+        "estado": "Estado de México",
+        "municipio": "Tlanepantla"
+    },
+    {
+        "nombre": "Oficina Tlanepantla II Walmart Rio de los Remedios",
+        "estado": "Estado de México",
+        "municipio": "Tlanepantla"
+    },
+    {
+        "nombre": "Oficina Izcalli I Soriana Alamedas",
+        "estado": "Estado de México",
+        "municipio": "Cuautitlan Izcalli"
+    },
+    {
+        "nombre": "Oficina Naucalpan II Soriana Jardines San Mateo",
+        "estado": "Estado de México",
+        "municipio": "Naucalpan"
+    },
+    {
+        "nombre": "Oficina Naucalpan III Soriana San Mateo",
+        "estado": "Estado de México",
+        "municipio": "Naucalpan"
+    },
+    {
+        "nombre": "Oficina Naucalpan V Soriana San Bartolo",
+        "estado": "Estado de México",
+        "municipio": "Naucalpan"
+    },
+    {
+        "nombre": "Oficina San Cristobal de las Casas",
+        "estado": "Chiapas",
+        "municipio": "San Cristobal de las Casas"
+    },
+    {
+        "nombre": "Oficina San Cristobal de las Casas II Soriana",
+        "estado": "Chiapas",
+        "municipio": "San Cristobal de las Casas"
+    },
+    {
+        "nombre": "Oficina Chiapas Tapachula I Soriana Coapante",
+        "estado": "Chiapas",
+        "municipio": "Tapachula"
+    },
+    {
+        "nombre": "Oficina Chiapas Tapachula II 5A",
+        "estado": "Chiapas",
+        "municipio": "Tapachula"
+    },
+    {
+        "nombre": "Oficina Chiapas Huixtla I San Jose",
+        "estado": "Chiapas",
+        "municipio": "Huixtla"
+    },
+    {
+        "nombre": "Oficina Chiapas Tapachula I Soriana Coapante II",
+        "estado": "Chiapas",
+        "municipio": "Tapachula"
+    },
+    {
+        "nombre": "Oficina Tuxtla Gutierrez I",
+        "estado": "Chiapas",
+        "municipio": "Tuxtla Gutierrez"
+    },
+    {
+        "nombre": "Oficina Tuxtla Gutierrez II 9na",
+        "estado": "Chiapas",
+        "municipio": "Tuxtla Gutierrez"
+    },
+    {
+        "nombre": "Oficina Tuxtla Gutierrez III Marimba",
+        "estado": "Chiapas",
+        "municipio": "Tuxtla Gutierrez"
+    },
+    {
+        "nombre": "Oficina Tuxtla Gutierrez IV La central",
+        "estado": "Chiapas",
+        "municipio": "Tuxtla Gutierrez"
+    },
+    {
+        "nombre": "Oficina Tuxtla Gutierrez V Mercado de los Ancianos",
+        "estado": "Chiapas",
+        "municipio": "Tuxtla Gutierrez"
+    },
+    {
+        "nombre": "Oficina CDMX Gustavo A Madero I Soriana la Villa",
+        "estado": "Ciudad de México",
+        "municipio": "Gustavo A Madero"
+    },
+    {
+        "nombre": "Oficina Venustiano Carranza I Soriana Consulado",
+        "estado": "Ciudad de México",
+        "municipio": "Venustiano Carranza"
+    },
+    {
+        "nombre": "Oficina Gustavo A Madero II Aurrera Ferrocarril",
+        "estado": "Ciudad de México",
+        "municipio": "Gustavo A Madero"
+    },
+    {
+        "nombre": "Oficina Quiosco Bonfil",
+        "estado": "Quintana Roo",
+        "municipio": "Benito Juarez"
+    },
+    {
+        "nombre": "Oficina Cancún I",
+        "estado": "Quintana Roo",
+        "municipio": "Benito Juarez"
+    },
+    {
+        "nombre": "Oficina Cancún II",
+        "estado": "Quintana Roo",
+        "municipio": "Benito Juarez"
+    },
+    {
+        "nombre": "Oficina Quiosco Cancún IV",
+        "estado": "Quintana Roo",
+        "municipio": "Benito Juarez"
+    },
+    {
+        "nombre": "Oficina Quiosco Mercado Veintiocho",
+        "estado": "Quintana Roo",
+        "municipio": "Benito Juarez"
+    },
+    {
+        "nombre": "Oficina Quiosco Mercado Vientitres",
+        "estado": "Quintana Roo",
+        "municipio": "Benito Juarez"
+    },
+    {
+        "nombre": "Oficina Cancun Asis Telas Tulum",
+        "estado": "Quintana Roo",
+        "municipio": "Benito Juarez"
+    },
+    {
+        "nombre": "Oficina Ruta Cuatro",
+        "estado": "Quintana Roo",
+        "municipio": "Benito Juarez"
+    },
+    {
+        "nombre": "Oficina Cozumel Matriz",
+        "estado": "Quintana Roo",
+        "municipio": "Cozumel"
+    },
+    {
+        "nombre": "Oficina Cozumel Gato",
+        "estado": "Quintana Roo",
+        "municipio": "Cozumel"
+    },
+    {
+        "nombre": "Oficina Quiosco Cozumel Super Aki",
+        "estado": "Quintana Roo",
+        "municipio": "Cozumel"
+    },
+    {
+        "nombre": "Oficina Quiosco Cozumel Boxito",
+        "estado": "Quintana Roo",
+        "municipio": "Cozumel"
+    },
+    {
+        "nombre": "Oficina Cozumel Centro",
+        "estado": "Quintana Roo",
+        "municipio": "Cozumel"
+    },
+    {
+        "nombre": "Oficina Cozumel Conalep",
+        "estado": "Quintana Roo",
+        "municipio": "Cozumel"
+    },
+    {
+        "nombre": "Oficina Cozumel mercado",
+        "estado": "Quintana Roo",
+        "municipio": "Cozumel"
+    },
+    {
+        "nombre": "Oficina Cozumel AV sesenta y cinco",
+        "estado": "Quintana Roo",
+        "municipio": "Cozumel"
+    },
+    {
+        "nombre": "Oficina Cozumel El mercadito",
+        "estado": "Quintana Roo",
+        "municipio": "Cozumel"
+    },
+    {
+        "nombre": "Oficina Cozumel Centro II",
+        "estado": "Quintana Roo",
+        "municipio": "Cozumel"
+    },
+    {
+        "nombre": "Oficina Quiosco Leona Vicario",
+        "estado": "Quintana Roo",
+        "municipio": "Leona Vicario"
+    },
+    {
+        "nombre": "Oficina Puerto Morelos",
+        "estado": "Quintana Roo",
+        "municipio": "Puerto Morelos"
+    },
+    {
+        "nombre": "Oficina SLP I Pedro Montoya",
+        "estado": "San Luis Potosí",
+        "municipio": "San Luis Potosi"
+    },
+    {
+        "nombre": "Oficina SLP II Ejido la Libertad",
+        "estado": "San Luis Potosí",
+        "municipio": "San Luis Potosi"
+    },
+    {
+        "nombre": "Oficina SLP III Soriana La Paz",
+        "estado": "San Luis Potosí",
+        "municipio": "San Luis Potosi"
+    },
+    {
+        "nombre": "Oficina SLP IV Av Ferrocarril",
+        "estado": "San Luis Potosí",
+        "municipio": "San Luis Potosi"
+    },
+    {
+        "nombre": "Oficina SLP V La Rosa",
+        "estado": "San Luis Potosí",
+        "municipio": "San Luis Potosi"
+    },
+    {
+        "nombre": "Oficina Mérida uno",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Quiosco Merida Super Aki Mercado",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Merida Lucas de Galvez",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Merida San Benito",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Merida uno",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Quiosco Merida Super aki Centenario",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Merida 1 Android",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Merida Chuburna",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Merida Palmas",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Merida Cordemex II",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficinas Mérida Oriente",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Merida Fogón",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Merida TI",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Merida Ex Fuente Maya",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Quiosco Merida Los Reyes",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Merida Oriente Android",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Merida Fogon Android",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Quiosco Merida Pensiones",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Quiosco Merida Canek",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Merida Ohoran",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Merida Donde",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Merida Ohoran Android",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Merida Melitón",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Quiosco Merida Santa Rosa",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Merida Militar",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Merida Mulsay",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Merida Chembech",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Merida Serapio Rendon",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina 42 Sur Android",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Merida Mulsay Android",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Ticul Centro",
+        "estado": "Yucatán",
+        "municipio": "Ticul"
+    },
+    {
+        "nombre": "Oficina Oxkutzcab",
+        "estado": "Yucatán",
+        "municipio": "Oxkutzcab"
+    },
+    {
+        "nombre": "Oficina Quiosco Muna",
+        "estado": "Yucatán",
+        "municipio": "Muna"
+    },
+    {
+        "nombre": "Oficina Peto",
+        "estado": "Yucatán",
+        "municipio": "Peto"
+    },
+    {
+        "nombre": "Oficina Teabo",
+        "estado": "Yucatán",
+        "municipio": "Teabo"
+    },
+    {
+        "nombre": "Oficina QuioscoTicul mercado",
+        "estado": "Yucatán",
+        "municipio": "Ticul"
+    },
+    {
+        "nombre": "Oficina Tekax",
+        "estado": "Yucatán",
+        "municipio": "Tekax"
+    },
+    {
+        "nombre": "Oficina Akil",
+        "estado": "Yucatán",
+        "municipio": "Akil"
+    },
+    {
+        "nombre": "Oficina Jose Maria Morelos",
+        "estado": "Quintana Roo",
+        "municipio": "Jose Maria Morelos"
+    },
+    {
+        "nombre": "Oficina Muna II",
+        "estado": "Yucatán",
+        "municipio": "Muna"
+    },
+    {
+        "nombre": "Oficina Guerrero Acapulco I Chedraui Pie de la Cuesta",
+        "estado": "Guerrero",
+        "municipio": "Acapulco"
+    },
+    {
+        "nombre": "Oficina Merida Cordemex",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Uman I",
+        "estado": "Yucatán",
+        "municipio": "Uman"
+    },
+    {
+        "nombre": "Oficina Maxcanu",
+        "estado": "Yucatán",
+        "municipio": "Maxcanu"
+    },
+    {
+        "nombre": "Oficina Uman II",
+        "estado": "Yucatán",
+        "municipio": "Uman"
+    },
+    {
+        "nombre": "Oficina Hunucma",
+        "estado": "Yucatán",
+        "municipio": "Hunucma"
+    },
+    {
+        "nombre": "Oficina Celestun",
+        "estado": "Yucatán",
+        "municipio": "Celestun"
+    },
+    {
+        "nombre": "Oficina Halacho",
+        "estado": "Yucatán",
+        "municipio": "Halacho"
+    },
+    {
+        "nombre": "Oficina Monterrey II Santa Lucia",
+        "estado": "Nuevo León",
+        "municipio": "Monterrey"
+    },
+    {
+        "nombre": "Oficina Cienega I Soriana Cienega Flores",
+        "estado": "Nuevo León",
+        "municipio": "Monterrey"
+    },
+    {
+        "nombre": "Oficina Santa Catarina I Soriana Diaz Ordaz",
+        "estado": "Nuevo León",
+        "municipio": "Monterrey"
+    },
+    {
+        "nombre": "Oficina Monterrey III Soriana Topo Chico",
+        "estado": "Nuevo León",
+        "municipio": "Monterrey"
+    },
+    {
+        "nombre": "Oficina Santa Catarina II Soriana La Puerta",
+        "estado": "Nuevo León",
+        "municipio": "Monterrey"
+    },
+    {
+        "nombre": "Oficina Monterrey IV Soriana Alianza",
+        "estado": "Nuevo León",
+        "municipio": "Monterrey"
+    },
+    {
+        "nombre": "Oficina Monterrey V Soriana Mitras",
+        "estado": "Nuevo León",
+        "municipio": "Monterrey"
+    },
+    {
+        "nombre": "Oficina Monterrey",
+        "estado": "Nuevo León",
+        "municipio": "Monterrey"
+    },
+    {
+        "nombre": "Oficina Guadalupe I Juarez",
+        "estado": "Nuevo León",
+        "municipio": "Monterrey"
+    },
+    {
+        "nombre": "Oficina Guadalupe II Centro",
+        "estado": "Nuevo León",
+        "municipio": "Monterrey"
+    },
+    {
+        "nombre": "Oficina Guadalupe III Guadalupe Plaza",
+        "estado": "Nuevo León",
+        "municipio": "Monterrey"
+    },
+    {
+        "nombre": "Oficina Guadalupe IV Soriana Benito Juarez",
+        "estado": "Nuevo León",
+        "municipio": "Monterrey"
+    },
+    {
+        "nombre": "Oficina Guadalupe V Soriana Serafin Peña",
+        "estado": "Nuevo León",
+        "municipio": "Monterrey"
+    },
+    {
+        "nombre": "Oficina Monterrey VI Soriana Colon",
+        "estado": "Nuevo León",
+        "municipio": "Monterrey"
+    },
+    {
+        "nombre": "Oficina Guadalupe VI Soriana Linda Vista",
+        "estado": "Nuevo León",
+        "municipio": "Monterrey"
+    },
+    {
+        "nombre": "Oficina Oaxaca I Soriana Colegio Militar",
+        "estado": "Oaxaca",
+        "municipio": "Oaxaca de Juarez"
+    },
+    {
+        "nombre": "Oficina Oaxaca II Central De Abastos",
+        "estado": "Oaxaca",
+        "municipio": "Oaxaca de Juarez"
+    },
+    {
+        "nombre": "Oficina Juan Pablo",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Merida Pacabtun",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Merida Santos Lugo",
+        "estado": "Yucatán",
+        "municipio": "Mérida"
+    },
+    {
+        "nombre": "Oficina Tizimin",
+        "estado": "Yucatán",
+        "municipio": "Tizimin"
+    },
+    {
+        "nombre": "Oficina Cansahcab",
+        "estado": "Yucatán",
+        "municipio": "Cansahcab"
+    },
+    {
+        "nombre": "Oficina Guadalajara Alcalde",
+        "estado": "Jalisco",
+        "municipio": "Guadalajara"
+    },
+    {
+        "nombre": "Oficina Santa Anita Jalisco",
+        "estado": "Jalisco",
+        "municipio": "Guadalajara"
+    },
+    {
+        "nombre": "Oficina Guadalajara Miravalle",
+        "estado": "Jalisco",
+        "municipio": "Guadalajara"
+    },
+    {
+        "nombre": "Oficina Guadalajara IV Cruz del Sur",
+        "estado": "Jalisco",
+        "municipio": "Guadalajara"
+    },
+    {
+        "nombre": "Oficina Guadalajara V Tlajomulco",
+        "estado": "Jalisco",
+        "municipio": "Guadalajara"
+    },
+    {
+        "nombre": "Oficina Guadalajara VI San Sebastian",
+        "estado": "Jalisco",
+        "municipio": "Guadalajara"
+    },
+    {
+        "nombre": "Oficina Tlajomulco II Soriana Las Fuentes",
+        "estado": "Jalisco",
+        "municipio": "Guadalajara"
+    },
+    {
+        "nombre": "Oficina Guadalajara VIII Soriana el Sauz",
+        "estado": "Jalisco",
+        "municipio": "Guadalajara"
+    },
+    {
+        "nombre": "Oficina Zapotlan I Soriana Cd Guzman",
+        "estado": "Jalisco",
+        "municipio": "Guadalajara"
+    },
+    {
+        "nombre": "Oficina Zapotlan II Soriana Plaza Zapotlan",
+        "estado": "Jalisco",
+        "municipio": "Guadalajara"
+    },
+    {
+        "nombre": "Oficina Ocotlan I Soriana Ocotlan",
+        "estado": "Jalisco",
+        "municipio": "Guadalajara"
+    },
+    {
+        "nombre": "Oficina La Barca I Soriana La Barca",
+        "estado": "Jalisco",
+        "municipio": "Guadalajara"
+    },
+    {
+        "nombre": "Oficina Tepatitlan I San Miguel",
+        "estado": "Jalisco",
+        "municipio": "Guadalajara"
+    },
+    {
+        "nombre": "Oficina Guadalajara VII Constitucion Zapopan",
+        "estado": "Jalisco",
+        "municipio": "Guadalajara"
+    },
+    {
+        "nombre": "Oficina Zapopan I San Isidro",
+        "estado": "Jalisco",
+        "municipio": "Guadalajara"
+    },
+    {
+        "nombre": "Oficina Tonala I Tonaltecas",
+        "estado": "Jalisco",
+        "municipio": "Guadalajara"
+    },
+    {
+        "nombre": "Oficina Zapopan II Miramar",
+        "estado": "Jalisco",
+        "municipio": "Guadalajara"
+    },
+    {
+        "nombre": "Oficina Juarez Chiapas",
+        "estado": "Chiapas",
+        "municipio": "Juarez"
+    },
+    {
+        "nombre": "Oficina Villahermosa Indeco",
+        "estado": "Tabasco",
+        "municipio": "Villahermosa"
+    },
+    {
+        "nombre": "Oficina Villahermosa Gaviotas",
+        "estado": "Tabasco",
+        "municipio": "Villahermosa"
+    },
+    {
+        "nombre": "Oficina Villahermosa Niños Heroes",
+        "estado": "Tabasco",
+        "municipio": "Villahermosa"
+    },
+    {
+        "nombre": "Oficina Villahermosa Indeco II",
+        "estado": "Tabasco",
+        "municipio": "Villahermosa"
+    },
+    {
+        "nombre": "Oficina Macuspana",
+        "estado": "Tabasco",
+        "municipio": "Macuspana"
+    },
+    {
+        "nombre": "Oficina Comacalco I",
+        "estado": "Tabasco",
+        "municipio": "Comacalco"
+    },
+    {
+        "nombre": "Oficina Tabasco Jalpa I",
+        "estado": "Tabasco",
+        "municipio": "Jalpa de Mendez"
+    },
+    {
+        "nombre": "Oficina Chetumal Calzada Veracruz",
+        "estado": "Quintana Roo",
+        "municipio": "Chetumal"
+    },
+    {
+        "nombre": "Oficina Quiosco Chetumal Super Aki",
+        "estado": "Quintana Roo",
+        "municipio": "Chetumal"
+    },
+    {
+        "nombre": "Oficina Chetumal Machuxac",
+        "estado": "Quintana Roo",
+        "municipio": "Chetumal"
+    },
+    {
+        "nombre": "Oficina Chetumal Constituyentes",
+        "estado": "Quintana Roo",
+        "municipio": "Chetumal"
+    },
+    {
+        "nombre": "Oficina Chetumal Calzada Veracruz II",
+        "estado": "Quintana Roo",
+        "municipio": "Chetumal"
+    },
+    {
+        "nombre": "Oficina Chetumal Alvaro Obregon Bancos",
+        "estado": "Quintana Roo",
+        "municipio": "Chetumal"
+    },
+    {
+        "nombre": "Oficina Chetumal Calzada Veracruz III Mercado",
+        "estado": "Quintana Roo",
+        "municipio": "Chetumal"
+    },
+    {
+        "nombre": "Oficina Chetumal Calzada Veracruz IV Guacamayo",
+        "estado": "Quintana Roo",
+        "municipio": "Chetumal"
+    },
+    {
+        "nombre": "Oficina Campeche",
+        "estado": "Campeche",
+        "municipio": "Campeche"
+    },
+    {
+        "nombre": "Oficina Campeche Plaza Cristal",
+        "estado": "Campeche",
+        "municipio": "Campeche"
+    },
+    {
+        "nombre": "Oficina Campeche III Seguro Social",
+        "estado": "Campeche",
+        "municipio": "Campeche"
+    },
+    {
+        "nombre": "Oficina Campeche IV Soriana Universidad",
+        "estado": "Campeche",
+        "municipio": "Campeche"
+    },
+    {
+        "nombre": "Oficina Campeche V Soriana Av Central",
+        "estado": "Campeche",
+        "municipio": "Campeche"
+    },
+    {
+        "nombre": "Oficina Campeche VI Luis Donaldo Colosio",
+        "estado": "Campeche",
+        "municipio": "Campeche"
+    },
+    {
+        "nombre": "Oficina Campeche VII Santa Lucia",
+        "estado": "Campeche",
+        "municipio": "Campeche"
+    },
+    {
+        "nombre": "Oficina Calkini",
+        "estado": "Campeche",
+        "municipio": "Calkini"
+    },
+    {
+        "nombre": "Oficina Pomuch",
+        "estado": "Campeche",
+        "municipio": "Pomuch"
+    },
+    {
+        "nombre": "Oficina Hecelchakan",
+        "estado": "Campeche",
+        "municipio": "Hecelchakan"
+    },
+    {
+        "nombre": "Oficina Becal",
+        "estado": "Campeche",
+        "municipio": "Becal"
+    },
+    {
+        "nombre": "Oficina Calkini II Centro",
+        "estado": "Campeche",
+        "municipio": "Calkini"
+    },
+    {
+        "nombre": "Oficina Tenabo Campeche",
+        "estado": "Campeche",
+        "municipio": "Tenabo"
+    },
+    {
+        "nombre": "Oficina Hopelchen I",
+        "estado": "Campeche",
+        "municipio": "Hopelchen"
+    },
+    {
+        "nombre": "Oficina Champoton",
+        "estado": "Campeche",
+        "municipio": "Champoton"
+    },
+    {
+        "nombre": "Oficina Seybaplaya",
+        "estado": "Campeche",
+        "municipio": "Seybaplaya"
+    },
+    {
+        "nombre": "Oficina Champoton Centro",
+        "estado": "Campeche",
+        "municipio": "Champoton"
+    },
+    {
+        "nombre": "Oficina Champoton III Salida Escárcega",
+        "estado": "Campeche",
+        "municipio": "Champoton"
+    },
+
         ];
 
         function updateOficinas(){
