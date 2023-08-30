@@ -289,6 +289,9 @@
                 var nuevaUbicacion = event.target.getAttribute("data-src");
                 var mapaIframe     = document.getElementById("mapaIframe");
                 mapaIframe.src = nuevaUbicacion;
+                mapaIframe.scrollIntoView({behavior: "smooth"});
+                
+
                 console.log('Boton de ubicación clickeado');
             }
         });
