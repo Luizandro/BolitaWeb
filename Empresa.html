@@ -189,35 +189,53 @@
             },
         });
 
-        async function fillDropdownByState(elementId, data){
-            try {
-                const response = await api.get('GetEstados');
-                const estados  = response.data.map(item => item.description);
+        async function populateDropdown(elementId, data, defaultOptionText = null){
+            const dropdown = document.getElementById(elementId);
+            dropdown.innerHTML = '';
             
-                const estadoDropDown = document.getElementById('estado');
-                
-                estados.forEach(estado => {
-                    const option       = document.createElement('option');
-                    option.value       = estado;
-                    option.textContent = estado;
-                    estadoDropDown.appendChild(option);
-                });
-            } catch (error) {
-                console.error('An error occurred:', error);
+            if(defaultOptionText != null){
+                const defaultOption = new Option(defaultOptionText, '');
+                dropdown.appendChild(defaultOption);
             }
+
+            data.forEach(item => {
+                const option  = new Option(item.description, item.id)
+                dropdown.appendChild(option);
+            });
         }
 
         async function municipiosByEstadoId(estadoId){
             try {
                 const response   = await api.get(`GetMunicipios/${estadoId}`);
                 const municipios = response.data;
-
-
-            } catch (error) {
                 
+                populateDropdown('municipio', municipios);
+            } catch (error) {
+                console.error('An error occurred:', error);
             }
         }
 
+        async function fillDropdownByState(){
+            try {
+                const response = await api.get('GetEstados');
+                const estados  = response.data;
+                
+                populateDropdown('estado', estados, 'Estado');
+
+                const estadoDropdown = document.getElementById('estado');
+                estadoDropdown.addEventListener('change', (event) =>{
+                    const selectedEstadoId = event.target.value;
+                    if (selectedEstadoId) {
+                        municipiosByEstadoId(selectedEstadoId);
+                    } else {
+                        populateDropdown('municipio', [])
+                    }
+                });
+
+            } catch (error) {
+                console.error('An error occurred:', error);
+            }
+        }
         fillDropdownByState();
 
     </script>
