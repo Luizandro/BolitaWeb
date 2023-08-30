@@ -44,25 +44,6 @@
                 <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1d4GfU35luwHejTPh8xy7HE0l6cxnXVw&ehbc=2E312F" height="300" width="500" frameborder="0" allowfullscreen style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></iframe>
             </div>
             <div class="bgLM">
-                <div class="text-center">
-                    En <span class="cY">Xazar</span> somos un equipo experto en juegos y sorteos con más de 10 años de experiencia 
-                    en el mercado de juegos y sorteos, mismos durante los cuales hemos operado el
-                    <div>
-                        <b>PERMISO de SEGOB DGAJS/SCEVF/P-01/2006.</b>
-                    </div>
-                    <div>
-                        En este periodo hemos desarrollado diferentes juegos con los cuales hemos ido ganando cada vez más clientes
-                        y vendedores a lo largo de los 30 estados de la República en donde nos encontramos.
-                    </div>
-                    <div>
-                        Tenemos un equipo experto de desarrollo y soporte, así como uno de los mejores sites del Surestes, el cual almacena y resguarda
-                        con total confiabilidad y seguridad toda nuestra información con equipos de última generación y tecnología de punta.
-                    </div>
-                    <div>
-                        Contamos con un Know How único en nuestros sistemas de tecnología, esquemas de venta, cobertura de puntos de venta y oferta de juegos
-                        lo cual nos permite posicionarnos como una de los mejores opciones en el País, en lo que se refiere a juegos y sorteos.
-                    </div>
-                </div>
                 <h2 style="text-align: center;">Sucursales La Bolita</h2>
                 <div class="row">
                     <div class="col-12">
@@ -189,6 +170,81 @@
             },
         });
 
+        async function fillPlazaCards(plazaData){
+            const plazaContainer = document.getElementById('oficinas');
+            plazaContainer.innerHTML= '';
+
+            plazaData.forEach(plaza => {
+                const plazaCard = `
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card mb-3">
+                                    <div class="row g-0">
+                                        <div class="col-md-6">
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title">${plaza.nombre}</h5>
+                                                <p class="card-text">${plaza.estado}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 d-flex justify-content-center align-items-center pt-3 pb-3">
+                                            <div class="text-center d-flex align-items-center">
+                                                <img class="img-fluid" src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/60/external-open-ecommerce-vitaliy-gorbachev-lineal-color-vitaly-gorbachev.png" alt="external-open-ecommerce-vitaliy-gorbachev-lineal-color-vitaly-gorbachev"/>
+                                                <p class="card-text ml-1"><small class="text-muted">9:00am - 9:00pm</small></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 d-flex justify-content-center align-items-center bg-image pt-3 pb-3">
+                                            <button class="actualizarMapa btn btn-success btn-lg" data-src="${plaza.direccion}">Ubicación</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+                ;
+                plazaContainer.insertAdjacentHTML('beforeend', plazaCard);
+            });
+
+        }
+
+        async function plazasByMunicipioId(municipioId){
+            try {
+                const response   = await api.get(`GetPlazas/${municipioId}`);
+                const plazas = response. data;
+
+                fillPlazaCards(plazas);
+                //console.log(municipios);
+
+            } catch (error) {
+                console.error('An error occurred:', error);
+            }
+        }
+        async function fillDropdownByState(){
+            try {
+                const response = await api.get('GetEstados');
+                const estados  = response.data;
+                
+                populateDropdown('estado', estados, 'Estado');
+
+                const estadoDropdown = document.getElementById('estado');
+                estadoDropdown.addEventListener('change', async (event) =>{
+                    const selectedEstadoId = event.target.value;
+                    if (selectedEstadoId) {
+                        fillPlazaCards([]);
+
+                        await municipiosByEstadoId(selectedEstadoId);
+                    } else {
+                        populateDropdown('municipio', [], 'municipio')
+                        fillPlazaCards([]);
+                        
+                    }
+                });
+
+            } catch (error) {
+                console.error('An error occurred:', error);
+            }
+        }
         async function populateDropdown(elementId, data, defaultOptionText = null){
             const dropdown = document.getElementById(elementId);
             dropdown.innerHTML = '';
@@ -209,33 +265,24 @@
                 const response   = await api.get(`GetMunicipios/${estadoId}`);
                 const municipios = response.data;
                 
-                populateDropdown('municipio', municipios);
-            } catch (error) {
-                console.error('An error occurred:', error);
-            }
-        }
+                populateDropdown('municipio', municipios, 'municipio');
 
-        async function fillDropdownByState(){
-            try {
-                const response = await api.get('GetEstados');
-                const estados  = response.data;
-                
-                populateDropdown('estado', estados, 'Estado');
-
-                const estadoDropdown = document.getElementById('estado');
-                estadoDropdown.addEventListener('change', (event) =>{
-                    const selectedEstadoId = event.target.value;
-                    if (selectedEstadoId) {
-                        municipiosByEstadoId(selectedEstadoId);
-                    } else {
-                        populateDropdown('municipio', [])
+                const municipioDropdown = document.getElementById('municipio');
+                municipioDropdown.addEventListener('change', (event) => {
+                    const selectedMunicipioId = event.target.value;
+                    if(selectedMunicipioId){
+                        // console.log(selectedMunicipioId);
+                        plazasByMunicipioId(selectedMunicipioId);
+                    }else{
+                        fillPlazaCards([]);
                     }
                 });
-
+                
             } catch (error) {
                 console.error('An error occurred:', error);
             }
         }
+
         fillDropdownByState();
 
     </script>
