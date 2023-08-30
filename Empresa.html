@@ -284,7 +284,14 @@
         }
 
         fillDropdownByState();
-
+        document.addEventListener('click', function(event){
+            if(event.target.classList.contains("actualizarMapa")){
+                var nuevaUbicacion = event.target.getAttribute("data-src");
+                var mapaIframe     = document.getElementById("mapaIframe");
+                mapaIframe.src = nuevaUbicacion;
+                console.log('Boton de ubicación clickeado');
+            }
+        });
     </script>
 </body>
 
