@@ -169,7 +169,7 @@
 
         async function municipiosByEstadoId(estadoId){
             try {
-                const response   = await api.get(`GetMunicipios/${estadoId}/false`);
+                const response   = await api.get(`GetMunicipiosDisponibles/${estadoId}`);
                 const municipios = response.data;
                 
                 populateDropdown('municipio', municipios, 'municipio');
