@@ -35,14 +35,7 @@
 <body>
     <div class="bg-danger d-flex justify-content-center align-items-center">
 
-        <div class="bg-white p-5 text-secondary d-flex align-items-center flex-column ph" style="width:50rem;">
-            <div>
-                <img src="https://juegalabolita.com/absolutenm/articlefiles/1401-xazar.png" alt="" style="width: 150px; height: 120px;">
-            </div>
-            <div>
-                
-                <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1d4GfU35luwHejTPh8xy7HE0l6cxnXVw&ehbc=2E312F" height="300" width="500" frameborder="0" allowfullscreen style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></iframe>
-            </div>
+        <div class="bg-white p-5 text-secondary d-flex align-items-center flex-column ph">
             <div class="bgLM">
                 <h2 style="text-align: center;">Sucursales La Bolita</h2>
                 <div class="row">
@@ -75,92 +68,6 @@
             </div>
         </div>
     </div>    
-
-    <!-- <script>
-        function updateOficinas(){
-            var selectedEstado    = $("#estado").val();
-            var selectedMunicipio = $("#municipio").val();
-
-            var filteredOficinas = offices.filter(
-                (office) =>
-                            office.estado == selectedEstado && office.municipio == selectedMunicipio
-            );
-            $("#oficinas").empty();
-            filteredOficinas.forEach(function (office){
-                $("#oficinas").append(`
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card mb-3">
-                                    <div class="row g-0">
-                                        <div class="col-md-6">
-                                            <div class="card-body text-center">
-                                                <h5 class="card-title">${office.nombre}</h5>
-                                                <p class="card-text">${office.estado}</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3 d-flex justify-content-center align-items-center pt-3 pb-3">
-                                            <div class="text-center d-flex align-items-center">
-                                                <img class="img-fluid" src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/60/external-open-ecommerce-vitaliy-gorbachev-lineal-color-vitaly-gorbachev.png" alt="external-open-ecommerce-vitaliy-gorbachev-lineal-color-vitaly-gorbachev"/>
-                                                <p class="card-text ml-1"><small class="text-muted">9:00am - 9:00pm</small></p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3 d-flex justify-content-center align-items-center bg-image pt-3 pb-3">
-                                            <button class="actualizarMapa btn btn-success btn-lg" data-src="${office.direccion}">Ubicación</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `);
-            });
-        }
-
-        function updateMunicipios(){
-            var selectedEstado = $("#estado").val();
-            var uniqueMunicipios = new Set();
-
-            offices
-                .filter((office) => office.estado == selectedEstado)
-                .forEach((office)=> {
-                    uniqueMunicipios.add(office.municipio);
-                });
-
-                var municipiosArray = Array.from(uniqueMunicipios);
-
-
-            // Limpia el dropdown de municipios
-            $("#municipio").empty();
-
-            // Agrega los municipios correspondientes al dropdown
-            municipiosArray.forEach(function (municipio) {
-                $("#municipio").append(
-                    $("<option>", {
-                    value: municipio,
-                    text: municipio,
-                    })
-                );
-            });
-
-            // Actualiza las oficinas al seleccionar el estado
-            updateOficinas();
-        }   
-        // Ejecuta la función al cargar la página para mostrar los municipios del primer estado
-        $(document).ready(function () {
-            updateMunicipios();
-
-            //Agrega eventos para actualizar las oficinas cuando se seleccione un estado o municipio
-            $("#estado").change(updateMunicipios);
-            $("#municipio").change(updateOficinas);
-
-            $(document).on("click", ".actualizarMapa", function(){
-                var nuevaUbicacion = $(this).data("src");
-                $("#mapaIframe").attr("src", nuevaUbicacion);
-                console.log('Botón de ubicación clickeado');
-            });
-        });
-    </script> -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
         const api = axios.create({
@@ -175,7 +82,8 @@
             plazaContainer.innerHTML= '';
 
             plazaData.forEach(plaza => {
-                const plazaCard = `
+                const plazaCard = 
+                `   
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
@@ -210,7 +118,7 @@
 
         async function plazasByMunicipioId(municipioId){
             try {
-                const response   = await api.get(`GetPlazas/${municipioId}`);
+                const response   = await api.get(`GetPlazasDisponibles/${municipioId}`);
                 const plazas = response. data;
 
                 fillPlazaCards(plazas);
@@ -222,7 +130,7 @@
         }
         async function fillDropdownByState(){
             try {
-                const response = await api.get('GetEstados');
+                const response = await api.get('GetEstados/false');
                 const estados  = response.data;
                 
                 populateDropdown('estado', estados, 'Estado');
@@ -262,7 +170,7 @@
 
         async function municipiosByEstadoId(estadoId){
             try {
-                const response   = await api.get(`GetMunicipios/${estadoId}`);
+                const response   = await api.get(`GetMunicipios/${estadoId}/false`);
                 const municipios = response.data;
                 
                 populateDropdown('municipio', municipios, 'municipio');
