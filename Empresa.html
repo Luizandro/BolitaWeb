@@ -122,7 +122,6 @@
                 const plazas = response. data;
 
                 fillPlazaCards(plazas);
-                //console.log(municipios);
 
             } catch (error) {
                 console.error('An error occurred:', error);
@@ -179,7 +178,6 @@
                 municipioDropdown.addEventListener('change', (event) => {
                     const selectedMunicipioId = event.target.value;
                     if(selectedMunicipioId){
-                        // console.log(selectedMunicipioId);
                         plazasByMunicipioId(selectedMunicipioId);
                     }else{
                         fillPlazaCards([]);
@@ -198,9 +196,6 @@
                 var mapaIframe     = document.getElementById("mapaIframe");
                 mapaIframe.src = nuevaUbicacion;
                 mapaIframe.scrollIntoView({behavior: "smooth"});
-                
-
-                console.log('Boton de ubicación clickeado');
             }
         });
     </script>
